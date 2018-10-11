@@ -22,7 +22,7 @@ extension String {
         let start = characters.index(startIndex, offsetBy: r.lowerBound)
 //        let end = <#T##String.CharacterView corresponding to `start`##String.CharacterView#>.index(start, offsetBy: r.upperBound - r.lowerBound)
         let end = characters.index(start, offsetBy: r.upperBound - r.lowerBound)
-        return self[Range(start..<end)]
+        return self[start..<end]
     }
 
     func size(_ font: UIFont) -> CGSize {
