@@ -22,11 +22,11 @@ extension String {
         let start = characters.index(startIndex, offsetBy: r.lowerBound)
 //        let end = <#T##String.CharacterView corresponding to `start`##String.CharacterView#>.index(start, offsetBy: r.upperBound - r.lowerBound)
         let end = characters.index(start, offsetBy: r.upperBound - r.lowerBound)
-        return self[start..<end]
+        return String(self[start..<end])
     }
 
     func size(_ font: UIFont) -> CGSize {
-        return NSAttributedString(string: self, attributes: [NSFontAttributeName: font]).size()
+        return NSAttributedString(string: self, attributes: [NSAttributedString.Key.font: font]).size()
     }
     
     func width(_ font: UIFont) -> CGFloat {

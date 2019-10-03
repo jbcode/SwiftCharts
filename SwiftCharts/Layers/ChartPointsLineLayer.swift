@@ -15,9 +15,9 @@ public enum LineJoin {
     
     public var CALayerString: String {
         switch self {
-        case .miter: return kCALineJoinMiter
-        case .round: return kCALineCapRound
-        case .bevel: return kCALineJoinBevel
+        case .miter: return CAShapeLayerLineJoin.miter.rawValue
+        case .round: return CAShapeLayerLineCap.round.rawValue
+        case .bevel: return CAShapeLayerLineJoin.bevel.rawValue
         }
     }
     
@@ -37,9 +37,9 @@ public enum LineCap {
     
     public var CALayerString: String {
         switch self {
-        case .butt: return kCALineCapButt
-        case .round: return kCALineCapRound
-        case .square: return kCALineCapSquare
+        case .butt: return CAShapeLayerLineCap.butt.rawValue
+        case .round: return CAShapeLayerLineCap.round.rawValue
+        case .square: return CAShapeLayerLineCap.square.rawValue
         }
     }
     

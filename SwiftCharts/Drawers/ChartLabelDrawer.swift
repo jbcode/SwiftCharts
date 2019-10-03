@@ -166,7 +166,7 @@ open class ChartLabelDrawer: ChartContextDrawer {
 
     
     fileprivate func drawLabel(x: CGFloat, y: CGFloat, text: String) {
-        let attributes = [NSFontAttributeName: label.settings.font, NSForegroundColorAttributeName: label.settings.fontColor]
+        let attributes = [NSAttributedString.Key.font: label.settings.font, NSAttributedString.Key.foregroundColor: label.settings.fontColor]
         let attrStr = NSAttributedString(string: text, attributes: attributes)
         attrStr.draw(at: CGPoint(x: x, y: y))
     }

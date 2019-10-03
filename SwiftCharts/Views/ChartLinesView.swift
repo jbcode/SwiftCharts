@@ -55,8 +55,8 @@ open class ChartLinesView: UIView {
 
     open func generateLayer(path: UIBezierPath) -> CAShapeLayer {
         let lineLayer = CAShapeLayer()
-        lineLayer.lineJoin = lineJoin.CALayerString
-        lineLayer.lineCap = lineCap.CALayerString
+        lineLayer.lineJoin = CAShapeLayerLineJoin(rawValue: lineJoin.CALayerString)
+        lineLayer.lineCap = CAShapeLayerLineCap(rawValue: lineCap.CALayerString)
         lineLayer.fillColor = UIColor.clear.cgColor
         lineLayer.lineWidth = lineWidth
         
@@ -71,12 +71,12 @@ open class ChartLinesView: UIView {
             lineLayer.strokeEnd = 0.0
             let pathAnimation = CABasicAnimation(keyPath: "strokeEnd")
             pathAnimation.duration = CFTimeInterval(animDuration)
-            pathAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            pathAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             pathAnimation.fromValue = NSNumber(value: 0 as Float)
             pathAnimation.toValue = NSNumber(value: 1 as Float)
             pathAnimation.autoreverses = false
             pathAnimation.isRemovedOnCompletion = false
-            pathAnimation.fillMode = kCAFillModeForwards
+            pathAnimation.fillMode = CAMediaTimingFillMode.forwards
             
             pathAnimation.beginTime = CACurrentMediaTime() + CFTimeInterval(animDelay)
             lineLayer.add(pathAnimation, forKey: "strokeEndAnimation")
