@@ -62,7 +62,7 @@ open class ChartLabelDrawer: ChartContextDrawer {
     
     open var screenLoc: CGPoint
     open var transform: CGAffineTransform?    
-    open let label: ChartAxisLabel
+    public let label: ChartAxisLabel
     
     open var center: CGPoint {
         return CGPoint(x: screenLoc.x + size.width / 2, y: screenLoc.y + size.height / 2)

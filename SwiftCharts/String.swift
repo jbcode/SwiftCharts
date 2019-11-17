@@ -11,7 +11,7 @@ import UIKit
 extension String {
     
     subscript (i: Int) -> Character {
-        return self[characters.index(startIndex, offsetBy: i)]
+        return self[i]
     }
     
     subscript (i: Int) -> String {
@@ -19,9 +19,9 @@ extension String {
     }
     
     subscript (r: Range<Int>) -> String {
-        let start = characters.index(startIndex, offsetBy: r.lowerBound)
+        let start = self.index(startIndex, offsetBy: r.lowerBound)
 //        let end = <#T##String.CharacterView corresponding to `start`##String.CharacterView#>.index(start, offsetBy: r.upperBound - r.lowerBound)
-        let end = characters.index(start, offsetBy: r.upperBound - r.lowerBound)
+        let end = self.index(start, offsetBy: r.upperBound - r.lowerBound)
         return String(self[start..<end])
     }
 
@@ -42,7 +42,7 @@ extension String {
     }
     
     func fittingSubstring(_ width: CGFloat, font: UIFont) -> String {
-        for i in stride(from: characters.count, to: 0, by: -1) {
+        for i in stride(from: self.count, to: 0, by: -1) {
             let substr = self[0..<i]
             if substr.width(font) <= width {
                 return substr
@@ -54,7 +54,7 @@ extension String {
     func truncate(_ width: CGFloat, font: UIFont) -> String {
         let ellipsis = "..."
         let substr = fittingSubstring(width - ellipsis.width(font), font: font)
-        if substr.characters.count != characters.count {
+        if substr.self.count != self.count {
             return "\(substr.trim())\(ellipsis)"
         } else {
             return self
